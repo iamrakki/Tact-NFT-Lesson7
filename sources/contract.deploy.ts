@@ -11,7 +11,7 @@ import { createOffchainContent } from './helpers';
     let testnet = true;
     let packageName = 'nft_NftCollection.pkg';
     let owner = Address.parse('EQDCWAnbip-FJlr71gJKgAVTznR-J_iDW-djThXp43q5qdXw');
-    let content = createOffchainContent("https://raw.githubusercontent.com/iamrakki/Tact-NFT-Lesson7/main/nft_data.json")
+    let content = createOffchainContent("https://raw.githubusercontent.com/iamrakki/Tact-NFT-Lesson7/main/nft_datas.json")
     let init = await NftCollection.init(owner, content, owner, 21n, 1000n);
 
     // Load required data
