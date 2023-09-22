@@ -1,0 +1,15 @@
+{
+    "image": "https://gold-exact-termite-826.mypinata.cloud/ipfs/QmXrSEAXam3nLangGFputyUMNEt8piEjao2zdz7fbhQuc8",
+    "name" : "Certificate",
+    "description" : "My Certificate",
+    "attributes" : [
+        {
+            "trait_type" : "age",
+            "value" : "5"
+        },
+        {
+            "trait_type" : "Certificate-type",
+            "value" : "1"  
+        }
+    ]
+}
