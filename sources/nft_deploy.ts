@@ -12,7 +12,7 @@ import { buffer } from "stream/consumers";
     let pair = await mnemonicToWalletKey(mnemonics);
     let client4 = new TonClient4({endpoint: "https://sandbox-v4.tonhubapi.com"});
     let wallet = client4.open(WalletContractV4.create({workchain: 0, publicKey: pair.publicKey}));
-    let collection = client4.open(NftCollection.fromAddress(Address.parse("EQCWywmUzk71ivxC6YrzzWBW0iwUox9hEw_ZXS5JWqWCRwTf")));
+    let collection = client4.open(NftCollection.fromAddress(Address.parse("EQAIhSDM4K17UXFwjG8ErIxtZ9ZjCWj51Bc58TpuHIOJiuEo")));
     await collection.send(wallet.sender(pair.secretKey), {value: toNano("0.08")}, {$$type: 'RequestNftDeploy', index: 1n, amount: toNano("0.03"), content: createOffchainContent("https://iamrakki-tactnftlesson7-g3f1b8jm9sv.ws-us104.gitpod.io/"), owner: wallet.address})
 })();
 
