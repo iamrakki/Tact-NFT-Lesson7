@@ -7,12 +7,13 @@ import { TonClient4, WalletContractV3R2, WalletContractV4 } from "ton";
 import { buffer } from "stream/consumers";
 
 (async () => {
+    // createNftDeployLink(Address.parse("EQCWywmUzk71ivxC6YrzzWBW0iwUox9hEw_ZXS5JWqWCRwTf"), Address.parse('EQDCWAnbip-FJlr71gJKgAVTznR-J_iDW-djThXp43q5qdXw'), toNano("0.06"), "https://raw.githubusercontent.com/nonam3e/tact-lessons/main/lesson6/nft_data.json", 0n);
     let mnemonics = readFileSync("./secret.txt").toString().split(",");
     let pair = await mnemonicToWalletKey(mnemonics);
     let client4 = new TonClient4({endpoint: "https://sandbox-v4.tonhubapi.com"});
     let wallet = client4.open(WalletContractV4.create({workchain: 0, publicKey: pair.publicKey}));
-    let collection = client4.open(NftCollection.fromAddress(Address.parse("EQAIhSDM4K17UXFwjG8ErIxtZ9ZjCWj51Bc58TpuHIOJiuEo")));
-    await collection.send(wallet.sender(pair.secretKey), {value: toNano("0.08")}, {$$type: 'RequestNftDeploy', index: 1n, amount: toNano("0.03"), content: createOffchainContent("https://raw.githubusercontent.com/iamrakki/Tact-NFT-Lesson7/main/nft_data.json"), owner: wallet.address})
+    let collection = client4.open(NftCollection.fromAddress(Address.parse("EQDhsRw87Hwp2lDVw2rFbsOojLEUEAPNh2OBzB0oGNTzFRI5")));
+    await collection.send(wallet.sender(pair.secretKey), {value: toNano("0.08")}, {$$type: 'RequestNftDeploy', index: 1n, amount: toNano("0.03"), content: createOffchainContent("https://raw.githubusercontent.com/iamrakki/Tact-NFT-Lesson7/main/nft_datas.json"), owner: wallet.address})
 })();
 
 export function createNftDeployLink(collection: Address, owner: Address, amount: bigint, content: string, index: bigint) {
